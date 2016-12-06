@@ -1,0 +1,181 @@
+#credit-card-fieldset {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    background-color: #f9f9f7;
+    border: 1px solid #fff;
+    margin: 0 auto 0;
+    padding: 13px 20px;
+}
+
+.payment_method_innova {
+	padding: 0px !important;
+	background-color: white !important;
+}
+
+fieldset ul{
+	    -webkit-padding-start: 0px !important;
+		padding: 0;
+}
+
+fieldset h2 {
+    color: #555;
+    font-family: ff-dagny-web-pro,"Helvetica Neue",Verdana,Geneva,Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    margin-bottom: 0;
+    text-align: left
+}
+
+fieldset li {
+    margin: 8px 0;
+	margin-bottom: 0px !important;
+}
+
+fieldset li .help {
+    color: #aaa;
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 14px;
+    padding-top: 14px;
+}
+
+fieldset li .help a {
+    color: #76a1cd
+}
+
+
+
+fieldset label {
+    color: #555;
+    display: block !important;
+    font-size: 14px;
+    font-weight: 400
+}
+
+fieldset input {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    color: #333;
+    display: block;
+    font-size: 18px !important;
+    height: 32px;
+    padding: 0 5px;
+    width: 275px;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box
+}
+
+fieldset input::-webkit-input-placeholder {
+    color: #ddd
+}
+
+fieldset input:-moz-placeholder {
+    color: #ddd;
+    opacity: 1
+}
+
+fieldset input::-moz-placeholder {
+    color: #ddd;
+    opacity: 1
+}
+
+fieldset input:-ms-input-placeholder {
+    color: #ddd
+}
+
+fieldset input:focus {
+    outline: 1px solid #38d
+}
+
+
+fieldset #innova-card-number {
+    background-image: url(../images/images.png),url(../images/images.png);
+    background-position: 2px -121px,220px -61px;
+    background-size: 120px 361px,120px 361px;
+    background-repeat: no-repeat;
+    padding-left: 54px;
+    width: 240px
+}
+
+fieldset #innova-card-number.visa {
+    background-position: 2px -163px,220px -61px
+}
+
+fieldset #innova-card-number.visa_electron {
+    background-position: 2px -205px,220px -61px
+}
+
+fieldset #innova-card-number.mastercard {
+    background-position: 2px -247px,220px -61px
+}
+
+fieldset #innova-card-number.maestro {
+    background-position: 2px -289px,220px -61px
+}
+
+fieldset #innova-card-number.discover {
+    background-position: 2px -331px,220px -61px
+}
+
+fieldset #innova-card-number.valid.visa {
+    background-position: 2px -163px,220px -87px
+}
+
+fieldset #innova-card-number.valid.visa_electron {
+    background-position: 2px -205px,220px -87px
+}
+
+fieldset #innova-card-number.valid.mastercard {
+    background-position: 2px -247px,220px -87px
+}
+
+fieldset #innova-card-number.valid.maestro {
+    background-position: 2px -289px,220px -87px
+}
+
+fieldset #innova-card-number.valid.discover {
+    background-position: 2px -331px,220px -87px
+}
+
+
+.vertical {
+    overflow: hidden
+}
+
+.vertical li {
+    float: left;
+    width: 90px;	
+}
+
+.vertical li .or {
+    color: #aaa;
+    float: left;
+    font-size: 12px;
+    margin-left: -8px;
+    margin-top: 32px
+}
+/*
+.vertical li:last-child {
+    float: right;
+    text-align: right
+}
+
+.vertical li:last-child select {
+    float: right
+}
+*/
+.vertical select {
+    width: 72px;
+	font-size: 18px;
+	padding-left: 3px! important;
+}
+
+#innova-card-cvc {
+	width: 68px;
+	padding-left: 3px! important;
+}
