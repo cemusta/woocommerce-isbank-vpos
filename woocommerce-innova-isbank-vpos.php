@@ -3,7 +3,7 @@
  * Plugin Name:       WooCommerce Innova Isbank Vpos
  * Plugin URI:        https://github.com/cemusta/woocommerce-isbank-vpos
  * Description:       This Payment Gateway allows you to accept payments on your Woocommerce store via Innova/İşbank Vpos. Supports only sale operation for Innova İşbank Vpos documentation v1.7.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Cem Usta
  * Author URI:        http://nooneelse.net
  * License:           GPL-2.0+
@@ -63,7 +63,7 @@ function init_WC_innova_isbank_payment_gateway() {
 		public function admin_options() {
 			?>
 			<h3><?php _e( 'Innova İşbank Vpos (for v1.7)','woocommerce' ); ?></h3>
-			<p><?php _e( 'Innova VPos Gateway This Payment Gateway allows you to accept payments on your Woocommerce store via Innova/İşbank Vpos. Supports only sale operation at the moment for Innova İşbank Vpos documentation v1.7.','woocommerce' ); ?></p>
+			<p><?php _e( 'This Payment Gateway allows you to accept payments on your Woocommerce store via Innova/İşbank Vpos. Supports only sale operation at the moment for Innova İşbank Vpos documentation v1.7.','woocommerce' ); ?></p>
 			<table class="form-table">
 				<?php $this->generate_settings_html(); ?>
 				<script type="text/javascript">
@@ -94,7 +94,7 @@ function init_WC_innova_isbank_payment_gateway() {
 			}
 			// Show message if enabled and FORCE SSL is disabled and WordpressHTTPS plugin is not detected
 			elseif ( 'no' == get_option( 'woocommerce_force_ssl_checkout' ) && ! class_exists( 'WordPressHTTPS' ) ) {
-				echo '<div class="error"><p>' . sprintf( __( 'Gateway is enabled, but the <a href="%s">force SSL option</a> is disabled; your checkout may not be secure! Please enable SSL and ensure your server has a valid SSL certificate - Gateway will only work in test mode.', 'woocommerce'), admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) . '</p></div>';
+				echo '<div class="error"><p>' . sprintf( __( 'Innova İşbank Vpos is enabled, but the <a href="%s">force SSL option</a> is disabled; your checkout may not be secure! Please enable SSL and ensure your server has a valid SSL certificate - Gateway will only work in test mode.', 'woocommerce'), admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) . '</p></div>';
 			}
 		}
 		/**
@@ -116,7 +116,7 @@ function init_WC_innova_isbank_payment_gateway() {
 			$this->form_fields = array(
 				'enabled' => array(
 					'title'       => __( 'Enable/Disable', 'woocommerce' ),
-					'label'       => __( 'Enable Innova Payment Gateway', 'woocommerce' ),
+					'label'       => __( 'Enable Innova İşbank Vpos Gateway', 'woocommerce' ),
 					'type'        => 'checkbox',
 					'description' => '',
 					'default'     => 'no'
@@ -360,7 +360,13 @@ function init_WC_innova_isbank_payment_gateway() {
                 $order->add_order_note( sprintf( __( '%s payment declined.<br />Error: %s<br />Code: %s', 'woocommerce' ), $this->title, $xml_object->ResultDetail, $xml_object->ResultCode ) );
                 // Print on-screen notice
                 $resultDetailEn = getEnglishDetail( "" . $xml_object->ResultCode );
-                wc_add_notice( sprintf( __( 'Checkout failed: %s (%s)', 'woocommerce' ), $resultDetailEn, $xml_object->ResultCode ) , 'error' );
+                if( $resultDetailEn != null) {
+                    wc_add_notice( sprintf( __( 'Checkout failed: %s (%s)', 'woocommerce' ), $resultDetailEn, $xml_object->ResultCode ) , 'error' );
+                }
+                else {
+                    wc_add_notice( sprintf( __( 'Checkout failed: Please try again later (%s)', 'woocommerce' ), $xml_object->ResultCode ) , 'error' );
+                }
+
                // Order failed
                $order->update_status('failed', __('Order Failed', 'woothemes'));
                // Return to same page
